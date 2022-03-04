@@ -1,13 +1,16 @@
 #! /usr/bin/env bash
+# run like bin/set-up -c config.json -v variable_definitions.json -e dev
 
 source bin/lib.sh
 
-while getopts e:c:v: flag
+dry_run=true
+while getopts e:c:v:d: flag
 do
   case "${flag}" in
     e) env=${OPTARG};;
     c) config_filename=${OPTARG};;
     v) variable_definition_file=${OPTARG};;
+    d) dry_run=${OPTARG};;
   esac
 done
 
@@ -21,4 +24,8 @@ fi
 # call the validation python script with the config file we pass in
 ## call a pythin script that parses the config file
 ## => makes sure it matches the variable definition passed in 
-python3 lib/setup.py -c "${config_filename}" -v "${variabl_definition_file}"
+python3 bin/lib/setup.py \
+  -c "${config_filename}" \
+  -v "${variable_definition_file}" \
+  -e "${env}" \
+  -d "${dry_run}"

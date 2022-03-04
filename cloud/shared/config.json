@@ -4,5 +4,13 @@
   "ADMIN_AUTH_PROVIDER": "activeDirectory",
   "ADMIN_AUTH_FORMAT": "OIDC",
   "RESIDENT_AUTH_PROVIDER": "openRadius",
-  "RESIDENT_AUTH_FORMAT": "SAML"
+  "RESIDENT_AUTH_FORMAT": "SAML",
+  "application_name": "staging", 
+  "docker_repository_name": "civiform",
+  "docker_username": "civiform",
+  "docker_tag": "latest",
+  "sender_eamil_address": "test@example.com",
+  "staging_program_admin_notification_mailing_list": "",
+  "staging_ti_notification_mailing_list": "",
+  "staging_applicant_notification_mailing_list": ""
 }
