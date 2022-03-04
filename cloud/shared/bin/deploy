@@ -3,6 +3,10 @@
 set -e
 
 export PROJECT_BASE_DIR="$(realpath "$(dirname "${BASH_SOURCE}")/../../../")"
+
+# Calls validate cloud provider on the things defined in variable_definitions
+# this keeps a list of all the variable definitions
 "${PROJECT_BASE_DIR}/cloud/shared/bin/validate_cloud_provider"
 
+## what are the args that would be here? --tag imageTage args =env
 exec "${PROJECT_BASE_DIR}/cloud/${CLOUD_PROVIDER}/bin/deploy" "$@"

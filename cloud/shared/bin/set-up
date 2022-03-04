@@ -1,0 +1,24 @@
+#! /usr/bin/env bash
+
+source bin/lib.sh
+
+while getopts e:c:v: flag
+do
+  case "${flag}" in
+    e) env=${OPTARG};;
+    c) config_filename=${OPTARG};;
+    v) variable_definition_file=${OPTARG};;
+  esac
+done
+
+if [[ ! "${env}" ]] \
+   || [[ ! "${config_filename}" ]] \
+   || [[ ! "${variable_definition_file}" ]]; then
+  out::error "arguments -e and -c and -v must be provided"
+  exit 1
+fi
+
+# call the validation python script with the config file we pass in
+## call a pythin script that parses the config file
+## => makes sure it matches the variable definition passed in 
+python3 lib/setup.py -c "${config_filename}" -v "${variabl_definition_file}"

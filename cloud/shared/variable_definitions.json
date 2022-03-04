@@ -4,5 +4,80 @@
     "secret": false,
     "type": "enum",
     "values": ["gcp", "azure", "aws"]
+  },
+  "EMAIL_SENDER": {
+    "required": true,
+    "secret": false,
+    "type": "enum",
+  "values": ["ses"]  
+  },
+  "ADMIN_AUTH_PROVIDER": {
+    "required": true,
+    "secret": false,
+    "type": "enum",
+  "values": ["activeDirectory"]  
+  },
+  "ADMIN_AUTH_FORMAT": {
+    "required": true,
+    "secret": false,
+    "type": "enum",
+  "values": ["OIDC"]  
+  },
+  "RESIDENT_AUTH_PROVIDER": {
+    "required": true,
+    "secret": false,
+    "type": "enum",
+  "values": ["openRadius", "idcs"]  
+  },
+  "RESIDENT_AUTH_FORMAT": {
+    "required": true,
+    "secret": false,
+    "type": "enum",
+  "values": ["OIDC", "SAML"]  
+  },
+  "application_name": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "docker_repository_name": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "docker_username": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "docker_tag": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "sender_email_address": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "staging_program_admin_notification_mailing_list": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "staging_ti_notification_mailing_list": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "staging_applicant_notification_mailing_list": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
+  },
+  "staging_hostname": {
+    "required": true,
+    "type": "tfvar",
+    "secret": "false"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "CIVIFORM_CLOUD_PROVIDER": "azure",
+  "EMAIL_SENDER": "SES",
+  "ADMIN_AUTH_PROVIDER": "activeDirectory",
+  "ADMIN_AUTH_FORMAT": "OIDC",
+  "RESIDENT_AUTH_PROVIDER": "openRadius",
+  "RESIDENT_AUTH_FORMAT": "SAML"
+}
