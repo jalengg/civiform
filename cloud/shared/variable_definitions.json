@@ -33,51 +33,52 @@
     "required": true,
     "secret": false,
     "type": "enum",
-  "values": ["OIDC", "SAML"]  
+    "values": ["OIDC", "SAML"]  
   },
   "application_name": {
     "required": true,
-    "type": "tfvar",
+    "tfvar": true,
+    "type": "string",
     "secret": "false"
   },
   "docker_repository_name": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   },
   "docker_username": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   },
   "docker_tag": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   },
   "sender_email_address": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   },
   "staging_program_admin_notification_mailing_list": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   },
   "staging_ti_notification_mailing_list": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   },
   "staging_applicant_notification_mailing_list": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   },
   "staging_hostname": {
     "required": true,
-    "type": "tfvar",
+    "type": "string",
     "secret": "false"
   }
 }

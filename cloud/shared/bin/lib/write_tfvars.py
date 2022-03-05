@@ -1,8 +1,8 @@
 import os
 
 class TfVarWritter():
-    def __init__(self, directory):
-        self.filepath = f'{directory}/setup.auto.tfvars'
+    def __init__(self, filepath):
+        self.filepath = filepath
     
     # a json of key = vals to turn itno a tfvars
     def write_variables(self, config_vars):

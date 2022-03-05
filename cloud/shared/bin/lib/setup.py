@@ -32,13 +32,14 @@ if config_loader.get_email_sender == "SES" and config_loader.get_cloud_provider(
 
 # Form the path to the correct directory. This feels a lil tenuous. 
 terraform_directory = f"../deploys/{parsed_args.env}_{config_loader.get_cloud_provider()}"
-
+terraform_tfvars_filename = f'{terraform_directory}/setup.auto.tfvars'
 # Write the passthrough vars to a temporary file
-tf_var_writter = TfVarWritter(terraform_directory)
+tf_var_writter = TfVarWritter(terraform_tfvars_filename)
 variables_to_write = config_loader.get_terraform_variables()
 tf_var_writter.write_variables(variables_to_write)
 
 if parsed_args.dry_run.lower() != "false":
-    subprocess.call("terraform plan", shell=True, cwd=terraform_directory)
+    subprocess.call("terraform init -input=false", shell=True, cwd=terraform_directory)
+    subprocess.call(f"terraform plan -out=tfplan -input=false -var-file={terraform_tfvars_filename}", shell=True, cwd=terraform_directory)
 else:
-    subprocess.call("terraform deploy", shell=True, cwd=terraform_directory)
+    subprocess.call(f"terraform apply -input=false -var-file={terraform_tfvars_filename}", shell=True, cwd=terraform_directory)
